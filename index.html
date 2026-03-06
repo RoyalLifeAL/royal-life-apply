@@ -10,61 +10,86 @@ background:#0f0f0f;
 color:white;
 font-family:Arial;
 text-align:center;
-}
-
-.form-wrapper{
-max-width:900px;
-margin:auto;
-padding:40px;
-}
-
-.royal-form{
-width:100%;
-height:1200px;
-border-radius:12px;
-border:none;
-margin-top:40px;
+margin-top:150px;
 }
 
 .apply-btn{
 background:#5865F2;
 color:white;
 border:none;
-padding:15px 30px;
-font-size:18px;
+padding:16px 32px;
+font-size:20px;
 border-radius:8px;
 cursor:pointer;
-margin-top:20px;
 }
 
 .apply-btn:hover{
 background:#4752c4;
 }
 
-</style>
+/* Popup background */
 
-<script>
-function showForm(){
-document.getElementById("form").scrollIntoView({behavior: "smooth"});
+.modal{
+display:none;
+position:fixed;
+z-index:1;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
 }
-</script>
+
+/* Popup box */
+
+.modal-content{
+position:relative;
+margin:5% auto;
+width:80%;
+max-width:900px;
+background:#111;
+padding:20px;
+border-radius:10px;
+}
+
+/* Close button */
+
+.close{
+color:white;
+float:right;
+font-size:28px;
+cursor:pointer;
+}
+
+/* Google form */
+
+.royal-form{
+width:100%;
+height:600px;
+border:none;
+border-radius:8px;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="form-wrapper">
-
 <h1>Royal Life RP</h1>
 <h2>Whitelist Application</h2>
 
-<p>Click the button below to apply for access to the city.</p>
-
-<button class="apply-btn" onclick="showForm()">
+<button class="apply-btn" onclick="openForm()">
 Apply for Whitelist
 </button>
 
-<div id="form">
+<!-- Modal -->
+
+<div id="formModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeForm()">&times;</span>
 
 <iframe 
 src="https://docs.google.com/forms/d/e/1FAIpQLSffZdAutiv1pPpvx3ZMjKBS9SoD8RQfOtr-tFt6A0q188JjWw/viewform?embedded=true"
@@ -74,6 +99,18 @@ class="royal-form">
 </div>
 
 </div>
+
+<script>
+
+function openForm(){
+document.getElementById("formModal").style.display = "block";
+}
+
+function closeForm(){
+document.getElementById("formModal").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
